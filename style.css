@@ -1,0 +1,288 @@
+:root {
+    --black:        rgba(0, 0, 0, 1);
+    --blue:         rgba(56, 114, 255, 1);
+    --cyan:         rgba(128, 188, 202, 1);
+    --dark-blue:    rgba(26, 74, 117, 1);
+    --grey:         rgba(235, 241, 250, .5); 
+    --light-grey:   rgba(235, 241, 250, 1); 
+    --light-yellow: rgba(254, 245, 232, 1);
+    --pink:         rgba(197, 100, 159, 1);
+    --salmon:       rgba(240, 132, 107, 1);
+    --sky:          rgba(110, 189, 204, 1);
+    --white:        rgba(255, 255, 255, 1);
+    --yellow:       rgba(245, 178, 69, 1);
+}
+
+body {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    padding-top: 4.5em;
+    font-size: 1.2rem;
+}
+
+.section{
+    background-image: url(assets/background-slider.svg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    padding-bottom: 5rem;
+}
+
+.section.bg-secondary{
+    background-image: url(assets/background-3.svg);
+}
+
+.navbar{
+    background-color: var(--dark-blue)!important;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link{
+    padding-left: 2rem;
+    color: var(--white);
+    text-transform: uppercase;
+    font-size: .8rem;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link:hover, 
+.navbar-expand-lg .navbar-nav .nav-link:focus, 
+.navbar-expand-lg .navbar-nav .nav-link:active, 
+.navbar-expand-lg .navbar-nav .nav-link.active
+{
+    color: var(--yellow);
+}
+
+.navbar-toggler{
+    border-color: var(--primary);
+}
+
+.navbar-toggler:focus{
+    box-shadow: var(--primary)
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6{
+    font-family: "MuseoModerno", sans-serif;
+    color: var(--black); 
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.h5{
+    font-size: 1.2rem;
+}
+
+.hero {
+    background-color: var(--cyan);
+    overflow: hidden;
+    height: 60vh;
+    background-size: 100%;
+}  
+
+@media (min-width: 576px){
+    .hero{
+        background-image: url(assets/background-banner.svg);
+        background-repeat: no-repeat;
+        background-position: bottom right; 
+        background-size: 55%;
+    }
+}
+
+.bg-secondary{
+    background-color: var(--light-yellow)!important;
+}
+
+.bg-warning{
+    background-color: var(--yellow)!important;
+}
+
+.bg-danger{
+    background-color: var(--salmon)!important;
+}
+
+.bg-info{
+    background-color: var(--cyan)!important;
+}
+
+.badge{
+    color: var(--black)!important;
+    margin-bottom: 1.3em;
+    padding: .5em 1.5em;
+}
+
+.btn{
+    border-radius: 50px;
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+
+.btn-lg{
+    padding: 1rem 2rem;
+}
+
+.btn.btn-primary{
+    background-color: var(--yellow)!important;
+    border: none;
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 
+                0 2px 2px 0 rgba(0, 0, 0, .14), 
+                0 1px 5px 0 rgba(0, 0, 0, .12);
+    color: var(--dark-blue);
+    font-size: .9rem;
+    font-weight: 700;
+    padding: .6rem;
+    text-transform: uppercase;
+}
+    
+.card .card-link{
+    display: block;
+    font-style: italic;
+    font-size: 1rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: var(--dark-blue);
+    margin: 1rem 0;
+}
+
+.card .card-link:before{
+    content: '';
+    background-image: url(assets/descargar-icon.svg);
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}
+
+.card .card-title{
+    margin-bottom: 1.6rem;
+}
+
+.figure {
+    overflow: hidden;
+}
+
+.figure-img {
+    height: 100%;
+    object-fit: cover; 
+} 
+
+.iframe-container {
+    background-attachment: scroll;
+    background-image: url(assets/iframe-background.png);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    min-height: 30vh;
+}
+
+@media(min-width: 720px) {
+    .iframe-container {
+        min-height: 880px;
+    }
+}
+
+.video{
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 
+        0 115px 64px rgba(0, 0, 0, .01),
+        0 75px 59px rgba(0, 0, 0, .08),
+        0 42px 50px rgba(0, 0, 0, .28),
+        0 18px 37px rgba(0, 0, 0, .47),
+        0 5px 20px rgba(0, 0, 0, .54);
+}
+ 
+.footer {
+    background-color: var(--cyan);
+}
+
+.swiper {
+    width: 100%;
+    height: 100%; 
+    padding: 0 24px 80px;
+}
+
+.swiper-button-next.swiper-button-disabled, .swiper-button-prev.swiper-button-disabled{
+    display: none;
+}
+
+.swiper-button-prev, .swiper-rtl .swiper-button-next{ 
+    left: 0px;
+}
+
+.swiper-button-next, .swiper-rtl .swiper-button-prev{
+    right: 0px;
+}
+
+.swiper-button-prev, .swiper-rtl .swiper-button-next,
+.swiper-button-next, .swiper-rtl .swiper-button-prev{
+    background: var(--sky);
+    border-radius: 50px;
+    padding: 22px;
+} 
+
+.swiper-button-next:after, .swiper-button-prev:after{
+    font-size: 1.5rem;
+    color: white;
+}
+
+.swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction{
+    position: relative;
+    width: auto;
+    bottom: 0;  
+}
+
+.swiper-pagination-bullet {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 20px;
+    font-size: .7rem;
+    color: rgba(0,0,0,.87);
+    opacity: 1;
+    background: transparent;
+    align-content: center;
+}
+
+.swiper-pagination-bullet-active {
+    color: var(--black);
+    background: var(--sky);
+}
+    
+.append-buttons  {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+} 
+
+.prepend-slide, 
+.append-slide{
+    width: 40px;
+    height: 40px; 
+    /* background: var(--sky); */
+    color: rgba(0,0,0,.87);
+    text-decoration: none; 
+    border-radius: 50px;  
+    font-family: swiper-icons;
+    font-size: .7rem;
+    text-transform: none !important;
+    letter-spacing: 0;
+    font-variant: initial;
+    line-height: 1;
+    display: inline-block;
+    text-align: center;
+    align-content: center;
+}
+
+.prepend-slide:after{
+    content: 'prev';
+} 
+
+.append-slide:after{
+    content: 'next';
+} 
+
+.opacity{
+    opacity: .8
+}
