@@ -3,8 +3,8 @@
     --blue:         rgba(56, 114, 255, 1);
     --cyan:         rgba(128, 188, 202, 1);
     --dark-blue:    rgba(26, 74, 117, 1);
-    --grey:         rgba(235, 241, 250, .5); 
-    --light-grey:   rgba(235, 241, 250, 1); 
+    --grey:         rgba(235, 241, 250, 1); 
+    --light-grey:   rgba(235, 241, 250, .5); 
     --light-yellow: rgba(254, 245, 232, 1);
     --pink:         rgba(197, 100, 159, 1);
     --salmon:       rgba(240, 132, 107, 1);
@@ -17,7 +17,7 @@ body {
     font-family: "Open Sans", sans-serif;
     font-weight: 600;
     padding-top: 4.5em;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 .section{
@@ -25,7 +25,6 @@ body {
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center center;
-    padding-bottom: 5rem;
 }
 
 .section.bg-secondary{
@@ -59,13 +58,22 @@ body {
     box-shadow: var(--primary)
 }
 
-.h1, .h2, .h3, .h4 {
+.breadcrumb-item.active a{
+    font-style: italic;
+    color: var(--dark-blue);
+}
+
+.h1, .h2, .h3, .h4{
     font-family: "MuseoModerno", sans-serif;
     color: var(--black); 
     font-size: 2rem;
     font-weight: 700;
 }
- 
+
+.h4 {
+    font-size: 1.5rem;
+}
+
 .hero {
     background-color: var(--cyan);
     overflow: hidden;
@@ -80,6 +88,14 @@ body {
         background-position: bottom right; 
         background-size: 55%;
     }
+}
+
+.bg-grey{
+    background-color: var(--grey)
+}
+
+.bg-light-grey{
+    background-color: var(--light-grey)
 }
 
 .bg-secondary{
@@ -167,6 +183,21 @@ body {
 
 .card .card-title{
     margin-bottom: 1.6rem;
+}
+
+.list-group{
+    background: transparent;
+}
+
+.list-group .list-group-item{
+    border: none;
+    background: transparent;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.list-group .list-group-item a {
+    text-decoration: none;
 }
 
 .figure {

@@ -30,9 +30,6 @@ const intersectionCallback = (entries) => {
     observer.observe(item);
   }
 
-  const previousPagination = document.querySelector('.prepend-slide');
-  const nextPagination = document.querySelector('.append-slide');
-
   const swiper = new Swiper('.swiper', {
     grabCursor: true,
     slidesPerView: 3,
@@ -50,26 +47,22 @@ const intersectionCallback = (entries) => {
     },
     on: {
         
-        init: function () {  
-            this.navigation.prevEl.classList.contains('swiper-button-disabled') ? previousPagination.classList.add('opacity') :  previousPagination.classList.remove('opacity'); 
+        init: function () {   
+
+          const previousPagination = this.pagination.el.previousElementSibling;
+          const nextPagination = this.pagination.el.nextElementSibling; 
+
+          previousPagination.addEventListener('click', (e) => {
+            e.preventDefault();
+            this.el.swiper.slidePrev();
+          })
+        
+          nextPagination.addEventListener('click', (e) => {
+            e.preventDefault();  
+            this.el.swiper.slideNext();
+          })
+         
         }
     }
-  });
-
-  swiper.
-
-  previousPagination.addEventListener('click',  (e) => {
-    e.preventDefault();
-    swiper.slidePrev(); 
-    swiper.navigation.prevEl.classList.contains('swiper-button-disabled') ? e.target.classList.add('opacity') :  e.target.classList.remove('opacity');
-    swiper.navigation.nextEl.classList.contains('swiper-button-disabled') ? nextPagination.classList.add('opacity') :  nextPagination.classList.remove('opacity');
-  });
-
-
-  nextPagination.addEventListener('click', (e) => {
-    e.preventDefault();
-    swiper.slideNext(); 
-    swiper.navigation.prevEl.classList.contains('swiper-button-disabled') ? previousPagination.classList.add('opacity') :  previousPagination.classList.remove('opacity');
-    swiper.navigation.nextEl.classList.contains('swiper-button-disabled') ? e.target.classList.add('opacity') :  e.target.classList.remove('opacity');
   });
  
