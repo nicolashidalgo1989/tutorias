@@ -31,7 +31,9 @@ for (const item of items) {
 }
 
 const swiper = new Swiper('.swiper', {
-  grabCursor: true, 
+  grabCursor: true,  
+  spaceBetween: 30,
+  centeredSlides: false,
   navigation: {
     nextEl: '.swiper-button-next',
     prevEl: '.swiper-button-prev',
@@ -41,17 +43,15 @@ const swiper = new Swiper('.swiper', {
     // when window width is >= 320px
     320: {
       slidesPerView: 1,
-      spaceBetween: 24
+      centeredSlides: true,
     },
     // when window width is >= 480px
     640: {
       slidesPerView: 2,
-      spaceBetween: 16
     },
     // when window width is >= 640px
     960: {
       slidesPerView: 3,
-      spaceBetween: 24,
       pagination: {
           el: '.swiper-pagination',
           clickable: true, 
