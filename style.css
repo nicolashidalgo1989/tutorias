@@ -3,6 +3,7 @@
     --blue:         rgba(56, 114, 255, 1);
     --cyan:         rgba(128, 188, 202, 1);
     --dark-blue:    rgba(26, 74, 117, 1);
+    --dark-grey:    rgba(117, 117, 117, 1);
     --grey:         rgba(235, 241, 250, 1); 
     --light-grey:   rgba(235, 241, 250, .5); 
     --light-yellow: rgba(254, 245, 232, 1);
@@ -11,24 +12,30 @@
     --sky:          rgba(110, 189, 204, 1);
     --white:        rgba(255, 255, 255, 1);
     --yellow:       rgba(245, 178, 69, 1);
+    --open-sans:    'Open Sans', arial, sans-serif;
+    --museo:        "MuseoModerno", sans-serif;
 }
 
 body {
-    font-family: "Open Sans", sans-serif;
+    font-family: var(--open-sans);
     font-weight: 600;
     padding-top: 4.5em;
     font-size: 1rem;
 }
 
-.section{
-    background-image: url(assets/background-slider.svg);
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-position: center center;
-}
 
-.section.bg-secondary{
-    background-image: url(assets/background-3.svg);
+@media (min-width: 576px){ 
+
+    .section{
+        background-image: url(assets/background-section.jpg), url(assets/background-6.png);
+        background-size: 100%, 100%;
+        background-repeat: no-repeat, repeat-y; 
+        background-position: center top, center center;
+    }
+
+    .section.bg-secondary{
+        background-image: url(assets/background-3.svg);
+    }
 }
 
 .navbar{
@@ -64,29 +71,53 @@ body {
 }
 
 .h1, .h2, .h3, .h4{
-    font-family: "MuseoModerno", sans-serif;
+    font-family: var(--museo);
     color: var(--black); 
     font-size: 2rem;
     font-weight: 700;
 }
 
-.h4 {
+.h3 {
+    font-family: var(--open-sans);
     font-size: 1.5rem;
+    font-weight: 700;
 }
 
+.h4 {
+    font-family: var(--open-sans);
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    color: var(--dark-grey);
+}
+ 
+.h6 {
+    font-family: var(--museo);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+ 
 .hero {
-    background-color: var(--cyan);
     overflow: hidden;
     height: 60vh;
     background-size: 100%;
+    background-color: var(--cyan);
 }  
+
+.hero.hero-recursos{ 
+    background-color: var(--yellow);
+}
 
 @media (min-width: 576px){
     .hero{
+        background-color: var(--cyan);
         background-image: url(assets/background-banner.svg);
         background-repeat: no-repeat;
         background-position: bottom right; 
         background-size: 55%;
+    }
+    .hero.hero-recursos{
+        background-color: var(--yellow);
+        background-image: url(assets/background-banner-recursos.svg);
     }
 }
 
@@ -153,7 +184,7 @@ body {
 }
 
 .card .card-body .h5{
-    font-family: 'Open Sans', arial, sans-serif;
+    font-family: var(--open-sans);
     font-weight: 700;
     font-size: 1.1rem;
     line-height: 1.4rem;
@@ -219,9 +250,11 @@ body {
 }
 
 @media(min-width: 720px) {
+
     .iframe-container {
         min-height: 880px;
     }
+    
 }
 
 .video{
@@ -241,8 +274,18 @@ body {
 
 .swiper {
     width: 100%;
-    height: 87%;
-    padding: 0 20px 80px;
+    height: 87%; 
+    padding: 0 20px;
+}
+
+@media (min-width: 576px){ 
+    
+    .swiper {
+        width: 100%;
+        height: 87%;
+        padding: 0 20px 80px;
+    }
+
 }
 
 .swiper-button-next.swiper-button-disabled, .swiper-button-prev.swiper-button-disabled{
@@ -301,31 +344,62 @@ body {
 
 .prepend-slide, 
 .append-slide{
-    width: 40px;
-    height: 40px; 
-    /* background: var(--sky); */
-    color: rgba(0,0,0,.87);
-    text-decoration: none; 
-    border-radius: 50px;  
-    font-family: swiper-icons;
-    font-size: .7rem;
-    text-transform: none !important;
-    letter-spacing: 0;
-    font-variant: initial;
-    line-height: 1;
-    display: inline-block;
-    text-align: center;
-    align-content: center;
+    display: none
 }
 
-.prepend-slide:after{
-    content: 'prev';
-} 
+@media (min-width: 576px){ 
+    .prepend-slide, 
+    .append-slide{
+        width: 40px;
+        height: 40px;  
+        color: rgba(0,0,0,.87);
+        text-decoration: none; 
+        border-radius: 50px;  
+        font-family: swiper-icons;
+        font-size: .7rem;
+        text-transform: none !important;
+        letter-spacing: 0;
+        font-variant: initial;
+        line-height: 1;
+        display: inline-block;
+        text-align: center;
+        align-content: center;
+    }
 
-.append-slide:after{
-    content: 'next';
-} 
+    .prepend-slide:after{
+        content: 'prev';
+    } 
+
+    .append-slide:after{
+        content: 'next';
+    } 
+}
 
 .opacity{
     opacity: .8
 }
+
+.nav-pills{
+    justify-content: center;
+}
+
+.nav-pills .nav-item{
+    margin: 0 .5rem;
+}
+
+.nav-pills .nav-item .nav-link{
+    border-radius: 50px;
+    border: 1px solid var(--dark-blue);
+    color: var(--dark-blue);
+    font-weight: 700;
+}
+
+.nav-pills .nav-item .nav-link.active{
+    border: 1px solid var(--sky);
+    background: var(--sky);
+    color: var(--white);
+}
+
+.offcanvas{
+    background: var(--sky)
+} 

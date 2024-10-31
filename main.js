@@ -14,55 +14,76 @@ const intersectionCallback = (entries) => {
     }
 }
 
-  /**
-   * Create a observer and use the instersectionCallback as 
-   * the instructions for what to do when an element enters
-   * or leaves the view
-   */
-  const observer = new IntersectionObserver(intersectionCallback);
-  
-  /**
-   * Get all .item elements and loop over them.
-   * Observe each individual item.
-   */
-  const items = document.querySelectorAll('.animate__animated');
-  for (const item of items) {
-    observer.observe(item);
-  }
+/**
+ * Create a observer and use the instersectionCallback as 
+ * the instructions for what to do when an element enters
+ * or leaves the view
+ */
+const observer = new IntersectionObserver(intersectionCallback);
 
-  const swiper = new Swiper('.swiper', {
-    grabCursor: true,
-    slidesPerView: 3,
-    spaceBetween: 24, 
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true, 
-        renderBullet: function (index, className) {
-            return '<span class="' + className + '">' + (index + 1) + "</span>";
-        }, 
-    }, 
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
+/**
+ * Get all .item elements and loop over them.
+ * Observe each individual item.
+ */
+const items = document.querySelectorAll('.animate__animated');
+for (const item of items) {
+  observer.observe(item);
+}
+
+const swiper = new Swiper('.swiper', {
+  grabCursor: true, 
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+  // Responsive breakpoints
+  breakpoints: {
+    // when window width is >= 320px
+    320: {
+      slidesPerView: 1,
+      spaceBetween: 24
     },
-    on: {
-        
-        init: function () {   
+    // when window width is >= 480px
+    640: {
+      slidesPerView: 2,
+      spaceBetween: 16
+    },
+    // when window width is >= 640px
+    960: {
+      slidesPerView: 3,
+      spaceBetween: 24,
+      pagination: {
+          el: '.swiper-pagination',
+          clickable: true, 
+          renderBullet: function (index, className) {
+              return '<span class="' + className + '">' + (index + 1) + "</span>";
+          }, 
+      }, 
+    },
+  },
+  on: {
+  
+    init: function () {   
 
-          const previousPagination = this.pagination.el.previousElementSibling;
-          const nextPagination = this.pagination.el.nextElementSibling; 
+      var w = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 
-          previousPagination.addEventListener('click', (e) => {
-            e.preventDefault();
-            this.el.swiper.slidePrev();
-          })
-        
-          nextPagination.addEventListener('click', (e) => {
-            e.preventDefault();  
-            this.el.swiper.slideNext();
-          })
-         
-        }
+      if (w >= 1199) {
+
+        const previousPagination = this.pagination.el.previousElementSibling;
+        const nextPagination = this.pagination.el.nextElementSibling; 
+
+        previousPagination.addEventListener('click', (e) => {
+          e.preventDefault();
+          this.el.swiper.slidePrev();
+        })
+      
+        nextPagination.addEventListener('click', (e) => {
+          e.preventDefault();  
+          this.el.swiper.slideNext();
+        })
+      }
+      
     }
-  });
+  }
+});
  
