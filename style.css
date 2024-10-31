@@ -304,10 +304,17 @@ body {
     object-fit: cover; 
 } 
  
-/* video */
+/* video */ 
+  
+.video {
+    /* --video--width: 1296;
+    --video--height: 540; */
 
-.video{
     border-radius: 8px;
+    position: relative; 
+    overflow: hidden;
+    max-width: 100%;
+    background: black;
     box-shadow: 0 115px 64px rgba(0, 0, 0, .01),
                 0 75px 59px rgba(0, 0, 0, .08),
                 0 42px 50px rgba(0, 0, 0, .28),
@@ -315,7 +322,17 @@ body {
                 0 5px 20px rgba(0, 0, 0, .54);
     overflow: hidden;
 }
- 
+
+.video iframe,
+.video object,
+.video embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
 /* footer */
 
 .footer {
