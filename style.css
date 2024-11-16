@@ -132,8 +132,14 @@ body {
     font-family: var(--museo);
     font-size: 1.5rem;
     font-weight: 700;
+    align-items: center;
+    display: flex;
 }
  
+.h6 img{
+    margin-right: 8px;
+}
+
 /* hero */
 
 .hero {
